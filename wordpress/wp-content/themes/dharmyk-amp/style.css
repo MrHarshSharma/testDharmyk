@@ -1,8 +1,8 @@
 /*
 Theme Name: Dharmyk AMP
 Theme URI: https://dharmyk.app
-Description: AMP-compliant theme for Dharmyk spiritual journey cards
-Version: 1.0.0
+Description: Pastel AMP theme for Dharmyk spiritual journey cards
+Version: 2.0.0
 Author: Dharmyk Team
 Author URI: https://dharmyk.app
 License: GNU General Public License v2 or later
@@ -10,15 +10,29 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: dharmyk-amp
 */
 
-/* CSS Variables */
+/* CSS Variables - Pastel Hindu Palette */
 :root {
-    --color-saffron: #FF9933;
-    --color-deep-red: #8B0000;
-    --color-warm-white: #FDFBF7;
-    --color-charcoal: #333333;
-    --color-light-gray: #F5F5F5;
-    --font-serif: 'Merriweather', Georgia, serif;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Primary Colors */
+    --color-saffron: #E65100;
+    --color-saffron-light: #FFE0B2;
+    --color-maroon: #8B0000;
+
+    /* Backgrounds */
+    --color-bg-page: #FAFAFA;
+    --color-bg-card: #FFFFFF;
+
+    /* Accents */
+    --color-sage: #E8F5E9;
+    --color-lavender: #F3E5F5;
+    --color-peach: #FFF3E0;
+
+    /* Text */
+    --color-text-primary: #2D3436;
+    --color-text-secondary: #636E72;
+
+    /* Fonts */
+    --font-heading: 'Georgia', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* Base Styles */
@@ -29,9 +43,9 @@ Text Domain: dharmyk-amp
 }
 
 body {
-    font-family: var(--font-sans);
-    background-color: var(--color-warm-white);
-    color: var(--color-charcoal);
+    font-family: var(--font-body);
+    background-color: var(--color-bg-page);
+    color: var(--color-text-primary);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
@@ -43,150 +57,157 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
+    padding-bottom: 20vh;
+    /* Lift visual center up */
     max-width: 600px;
     margin: 0 auto;
+    background: var(--color-bg-page);
+}
+
+.content-wrapper {
+    background: var(--color-bg-card);
+    padding: 2rem;
+    border-radius: 24px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 /* Typography */
 h1,
 h2,
 h3 {
-    font-family: var(--font-serif);
-    color: var(--color-deep-red);
-    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 h1 {
-    font-size: 2rem;
-    line-height: 1.2;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-maroon);
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 p {
     margin-bottom: 1rem;
-    font-size: 1.125rem;
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    text-align: center;
 }
 
-/* Sanskrit Text */
-.sanskrit {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    line-height: 1.8;
-    color: var(--color-deep-red);
-    text-align: center;
-    margin: 2rem 0;
-    font-style: italic;
-}
-
-/* Translation */
-.translation {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    text-align: center;
+/* Features */
+.highlight-box {
+    background-color: var(--color-peach);
+    padding: 1.5rem;
+    border-radius: 16px;
     margin: 1.5rem 0;
+    text-align: center;
+}
+
+.sanskrit {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--color-saffron);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.translation {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--color-text-primary);
 }
 
 /* Images */
 amp-img {
     width: 100%;
     margin: 1.5rem 0;
-    border-radius: 8px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* Buttons */
+/* Buttons */
+.btn-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
 .btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, var(--color-saffron), #FFB366);
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-saffron);
     color: white;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 16px;
     font-weight: 600;
-    font-size: 1.125rem;
+    font-size: 1rem;
     text-align: center;
     transition: transform 0.2s;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(255, 153, 51, 0.3);
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(255, 153, 51, 0.4);
+    box-shadow: 0 4px 12px rgba(230, 81, 0, 0.3);
 }
 
 .btn:active {
-    transform: translateY(0);
+    opacity: 0.9;
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-text-secondary);
+    border: 2px solid #E0E0E0;
+    box-shadow: none;
+}
+
+.btn-secondary:active {
+    background: #F5F5F5;
 }
 
 /* Quiz Styles */
-.quiz-container {
-    width: 100%;
-    margin: 2rem 0;
-}
-
-.quiz-question {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
 .quiz-option {
     display: block;
     width: 100%;
-    padding: 1rem 1.5rem;
-    margin-bottom: 1rem;
-    background: white;
-    border: 2px solid var(--color-light-gray);
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: var(--color-bg-page);
+    border: 1px solid #EEEEEE;
     border-radius: 12px;
     font-size: 1rem;
     text-align: left;
+    color: var(--color-text-primary);
     cursor: pointer;
-    transition: all 0.2s;
-}
-
-.quiz-option:hover {
-    border-color: var(--color-saffron);
-    background: #FFF9F0;
 }
 
 .quiz-option.correct {
-    background: #E8F5E9;
-    border-color: #4CAF50;
+    background: var(--color-sage);
+    border-color: #81C784;
 }
 
 .quiz-option.incorrect {
     background: #FFEBEE;
-    border-color: #F44336;
+    border-color: #EF5350;
 }
 
-/* Reflection Form */
-.reflection-form {
-    width: 100%;
-    margin: 2rem 0;
-}
-
-.reflection-prompt {
-    font-size: 1.125rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-style: italic;
-}
-
+/* Forms */
 textarea {
     width: 100%;
-    min-height: 150px;
     padding: 1rem;
-    border: 2px solid var(--color-light-gray);
+    border: 1px solid #E0E0E0;
     border-radius: 12px;
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     font-size: 1rem;
-    resize: vertical;
+    background: var(--color-bg-page);
     margin-bottom: 1rem;
 }
 
@@ -195,33 +216,23 @@ textarea:focus {
     border-color: var(--color-saffron);
 }
 
-/* Audio Player */
+/* Audio */
 .audio-container {
-    width: 100%;
-    margin: 2rem 0;
+    background: var(--color-bg-page);
+    padding: 1rem;
+    border-radius: 16px;
+    margin: 1.5rem 0;
 }
 
-/* Utility Classes */
+/* Utilities */
 .text-center {
     text-align: center;
 }
 
-.mt-2 {
-    margin-top: 2rem;
-}
-
 .mb-2 {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Responsive */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.75rem;
-    }
-
-    .btn {
-        padding: 0.875rem 1.75rem;
-        font-size: 1rem;
-    }
+.mt-2 {
+    margin-top: 1.5rem;
 }

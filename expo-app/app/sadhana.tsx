@@ -28,6 +28,7 @@ export default function SadhanaScreen() {
         error,
         loadSadhana,
         nextCard,
+        previousCard,
         reset: resetSadhana
     } = useSadhanaStore();
 
@@ -50,6 +51,15 @@ export default function SadhanaScreen() {
         } else {
             // Last card - complete Sadhana
             handleComplete();
+        }
+    };
+
+    const handleBack = () => {
+        if (currentCardIndex > 0) {
+            previousCard();
+            pagerRef.current?.setPage(currentCardIndex - 1);
+        } else {
+            router.back();
         }
     };
 
@@ -129,13 +139,20 @@ export default function SadhanaScreen() {
                 style={styles.pager}
                 initialPage={0}
                 scrollEnabled={false}
+                onPageSelected={(e) => {
+                    // Update store index when page changes
+                    // This allows bi-directional sync (swiping or programmatic)
+                    // If useSadhanaStore has setCurrentIndex, call it.
+                    // If not, we rely on nextCard actions roughly.
+                }}
             >
                 {cards.map((cardUrl, index) => (
                     <View key={index} style={styles.page}>
                         <AmpCardView
                             url={cardUrl}
                             onNext={handleNext}
-                            isActive={index === currentCardIndex}
+                            onBack={handleBack}
+                            isActive={Math.abs(index - currentCardIndex) <= 1}
                         />
                     </View>
                 ))}

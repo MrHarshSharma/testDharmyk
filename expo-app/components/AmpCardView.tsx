@@ -12,10 +12,11 @@ const COLORS = {
 interface AmpCardViewProps {
     url: string;
     onNext: () => void;
+    onBack?: () => void;
     isActive: boolean;
 }
 
-export default function AmpCardView({ url, onNext, isActive }: AmpCardViewProps) {
+export default function AmpCardView({ url, onNext, onBack, isActive }: AmpCardViewProps) {
     const webViewRef = useRef<WebView>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -56,6 +57,12 @@ export default function AmpCardView({ url, onNext, isActive }: AmpCardViewProps)
             switch (action) {
                 case 'next':
                     onNext();
+                    break;
+
+                case 'back':
+                    if (onBack) {
+                        onBack();
+                    }
                     break;
 
                 case 'quiz_correct':

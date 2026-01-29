@@ -32,7 +32,7 @@ export default function TabLayout() {
                 options={{
                     title: 'Home',
                     tabBarIcon: ({ color, size }) => <Home size={size} color={color} />,
-                    headerTitle: "Today's Sadhana",
+                    headerShown: false,
                 }}
             />
             <Tabs.Screen
@@ -40,7 +40,7 @@ export default function TabLayout() {
                 options={{
                     title: 'Profile',
                     tabBarIcon: ({ color, size }) => <User size={size} color={color} />,
-                    headerTitle: 'My Journey',
+                    headerShown: false,
                 }}
             />
         </Tabs>
