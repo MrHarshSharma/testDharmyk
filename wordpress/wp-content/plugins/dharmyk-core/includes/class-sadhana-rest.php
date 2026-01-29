@@ -89,8 +89,8 @@ class Dharmyk_Sadhana_REST extends WP_REST_Controller {
         $theme = get_field('theme', $post_id);
         
         // Build card URLs
-        // Use network IP instead of home_url() so mobile devices can access
-        $base_url = "http://192.168.31.163:8080/sadhana/{$post_id}";
+        // Use home_url() which is configured to the correct network IP
+        $base_url = home_url("/sadhana/{$post_id}");
         
         $cards = array(
             array(

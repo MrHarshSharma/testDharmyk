@@ -6,7 +6,11 @@
 
 // Use your computer's local network IP instead of localhost
 // This allows mobile devices to connect to WordPress running on your computer
-const WORDPRESS_BASE_URL = 'http://192.168.31.163:8080';
+import { Config } from '../constants/Config';
+
+// Use your computer's local network IP instead of localhost
+// This allows mobile devices to connect to WordPress running on your computer
+const WORDPRESS_BASE_URL = Config.API_BASE_URL;
 
 export interface SadhanaCard {
   type: 'intro' | 'shloka' | 'katha' | 'smriti' | 'manana';
