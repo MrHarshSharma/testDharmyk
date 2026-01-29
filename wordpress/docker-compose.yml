@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: dharmyk_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: dharmyk_db
+      MYSQL_USER: dharmyk_user
+      MYSQL_PASSWORD: dharmyk_pass
+      MYSQL_ROOT_PASSWORD: root_pass
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - dharmyk_network
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    container_name: dharmyk_wordpress
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: dharmyk_db
+      WORDPRESS_DB_USER: dharmyk_user
+      WORDPRESS_DB_PASSWORD: dharmyk_pass
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./wp-content/plugins/dharmyk-core:/var/www/html/wp-content/plugins/dharmyk-core
+      - ./wp-content/themes/dharmyk-amp:/var/www/html/wp-content/themes/dharmyk-amp
+    networks:
+      - dharmyk_network
+
+volumes:
+  db_data:
+  wordpress_data:
+
+networks:
+  dharmyk_network:
+    driver: bridge

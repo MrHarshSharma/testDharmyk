@@ -1,0 +1,227 @@
+/*
+Theme Name: Dharmyk AMP
+Theme URI: https://dharmyk.app
+Description: AMP-compliant theme for Dharmyk spiritual journey cards
+Version: 1.0.0
+Author: Dharmyk Team
+Author URI: https://dharmyk.app
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: dharmyk-amp
+*/
+
+/* CSS Variables */
+:root {
+    --color-saffron: #FF9933;
+    --color-deep-red: #8B0000;
+    --color-warm-white: #FDFBF7;
+    --color-charcoal: #333333;
+    --color-light-gray: #F5F5F5;
+    --font-serif: 'Merriweather', Georgia, serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-warm-white);
+    color: var(--color-charcoal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Card Container */
+.card-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--font-serif);
+    color: var(--color-deep-red);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+}
+
+/* Sanskrit Text */
+.sanskrit {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-deep-red);
+    text-align: center;
+    margin: 2rem 0;
+    font-style: italic;
+}
+
+/* Translation */
+.translation {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+/* Images */
+amp-img {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--color-saffron), #FFB366);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-align: center;
+    transition: transform 0.2s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 153, 51, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 153, 51, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Quiz Styles */
+.quiz-container {
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.quiz-question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.quiz-option {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    background: white;
+    border: 2px solid var(--color-light-gray);
+    border-radius: 12px;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quiz-option:hover {
+    border-color: var(--color-saffron);
+    background: #FFF9F0;
+}
+
+.quiz-option.correct {
+    background: #E8F5E9;
+    border-color: #4CAF50;
+}
+
+.quiz-option.incorrect {
+    background: #FFEBEE;
+    border-color: #F44336;
+}
+
+/* Reflection Form */
+.reflection-form {
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.reflection-prompt {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-style: italic;
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    border: 2px solid var(--color-light-gray);
+    border-radius: 12px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    resize: vertical;
+    margin-bottom: 1rem;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--color-saffron);
+}
+
+/* Audio Player */
+.audio-container {
+    width: 100%;
+    margin: 2rem 0;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .btn {
+        padding: 0.875rem 1.75rem;
+        font-size: 1rem;
+    }
+}
